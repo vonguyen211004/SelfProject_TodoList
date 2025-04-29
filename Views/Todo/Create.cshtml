@@ -1,0 +1,52 @@
+@model TodoList.Models.Todo
+
+@{
+    ViewData["Title"] = "Thêm công việc mới";
+}
+
+<div class="box">
+    <h1 class="title is-3" style="color: var(--brown-dark);">Thêm công việc mới</h1>
+
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="notification is-danger"></div>
+        
+        <div class="field">
+            <label asp-for="Title" class="label"></label>
+            <div class="control">
+                <input asp-for="Title" class="input" />
+            </div>
+            <span asp-validation-for="Title" class="help is-danger"></span>
+        </div>
+        
+        <div class="field">
+            <label asp-for="Description" class="label"></label>
+            <div class="control">
+                <textarea asp-for="Description" class="textarea"></textarea>
+            </div>
+            <span asp-validation-for="Description" class="help is-danger"></span>
+        </div>
+        
+        <div class="field">
+            <label asp-for="DueDate" class="label"></label>
+            <div class="control">
+                <input asp-for="DueDate" class="input" type="date" />
+            </div>
+            <span asp-validation-for="DueDate" class="help is-danger"></span>
+        </div>
+        
+        <div class="field is-grouped mt-5">
+            <div class="control">
+                <button type="submit" class="button is-brown">Lưu</button>
+            </div>
+            <div class="control">
+                <a asp-action="Index" class="button" style="background-color: #f5f5f5; color: var(--brown-primary); border: 1px solid #dbdbdb;">
+                    <span>Hủy</span>
+                </a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

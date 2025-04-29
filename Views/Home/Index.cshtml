@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+<div class="hero is-brown is-medium">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title is-1">
+                Chào mừng đến với TodoList
+            </h1>
+            <h2 class="subtitle is-3">
+                Ứng dụng quản lý công việc đơn giản
+            </h2>
+            <div class="buttons is-centered mt-5">
+                <a asp-controller="Account" asp-action="Login" class="button is-brown-outline is-large" style="color: #ffffff !important;">
+                    <span class="icon">
+                        <i class="fas fa-sign-in-alt"></i>
+                    </span>
+                    <span>Đăng nhập</span>
+                </a>
+                <a asp-controller="Account" asp-action="Register" class="button is-brown is-large" style="color: #ffffff !important;">
+                    <span class="icon">
+                        <i class="fas fa-user-plus"></i>
+                    </span>
+                    <span>Đăng ký</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content">
+                    <h3 class="title is-4 has-text-centered" style="color: var(--brown-dark);">Tính năng chính</h3>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="box has-text-centered" style="border-top: 4px solid var(--brown-primary);">
+                                <span class="icon is-large" style="color: var(--brown-primary);">
+                                    <i class="fas fa-tasks fa-2x"></i>
+                                </span>
+                                <p class="title is-5" style="color: var(--brown-dark);">Quản lý công việc</p>
+                                <p>Tạo và quản lý danh sách công việc của bạn một cách dễ dàng</p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="box has-text-centered" style="border-top: 4px solid var(--brown-primary);">
+                                <span class="icon is-large" style="color: var(--brown-primary);">
+                                    <i class="fas fa-calendar-check fa-2x"></i>
+                                </span>
+                                <p class="title is-5" style="color: var(--brown-dark);">Theo dõi tiến độ</p>
+                                <p>Đánh dấu công việc đã hoàn thành và theo dõi tiến độ</p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="box has-text-centered" style="border-top: 4px solid var(--brown-primary);">
+                                <span class="icon is-large" style="color: var(--brown-primary);">
+                                    <i class="fas fa-user-shield fa-2x"></i>
+                                </span>
+                                <p class="title is-5" style="color: var(--brown-dark);">Bảo mật</p>
+                                <p>Dữ liệu của bạn được bảo mật và chỉ bạn mới có thể truy cập</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

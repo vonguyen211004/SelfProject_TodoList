@@ -1,0 +1,64 @@
+@model TodoList.Models.Todo
+
+@{
+    ViewData["Title"] = "Chỉnh sửa công việc";
+}
+
+<div class="box">
+    <h1 class="title is-3" style="color: var(--brown-dark);">Chỉnh sửa công việc</h1>
+
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="notification is-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="CreatedAt" />
+        <input type="hidden" asp-for="UserId" />
+        
+        <div class="field">
+            <label asp-for="Title" class="label"></label>
+            <div class="control">
+                <input asp-for="Title" class="input" />
+            </div>
+            <span asp-validation-for="Title" class="help is-danger"></span>
+        </div>
+        
+        <div class="field">
+            <label asp-for="Description" class="label"></label>
+            <div class="control">
+                <textarea asp-for="Description" class="textarea"></textarea>
+            </div>
+            <span asp-validation-for="Description" class="help is-danger"></span>
+        </div>
+        
+        <div class="field">
+            <label asp-for="DueDate" class="label"></label>
+            <div class="control">
+                <input asp-for="DueDate" class="input" type="date" />
+            </div>
+            <span asp-validation-for="DueDate" class="help is-danger"></span>
+        </div>
+        
+        <div class="field">
+            <div class="control">
+                <label class="checkbox">
+                    <input asp-for="IsDone" type="checkbox" />
+                    @Html.DisplayNameFor(model => model.IsDone)
+                </label>
+            </div>
+        </div>
+        
+        <div class="field is-grouped mt-5">
+            <div class="control">
+                <button type="submit" class="button is-brown">Lưu thay đổi</button>
+            </div>
+            <div class="control">
+                <a asp-action="Index" class="button" style="background-color: #f5f5f5; color: var(--brown-primary); border: 1px solid #dbdbdb;">
+                    <span>Hủy</span>
+                </a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

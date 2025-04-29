@@ -1,0 +1,31 @@
+@model TodoList.Models.Todo
+
+@{
+    ViewData["Title"] = "Xóa công việc";
+}
+
+<div class="box">
+    <h1 class="title is-3" style="color: var(--brown-dark);">Xóa công việc</h1>
+    <h2 class="subtitle is-5">Bạn có chắc chắn muốn xóa công việc này?</h2>
+
+    <div class="content">
+        <dl class="columns">
+            <dt class="column is-2">@Html.DisplayNameFor(model => model.Title)</dt>
+            <dd class="column is-10">@Html.DisplayFor(model => model.Title)</dd>
+        </dl>
+    </div>
+    
+    <form asp-action="Delete" class="mt-5">
+        <input type="hidden" asp-for="Id" />
+        <div class="field is-grouped">
+            <div class="control">
+                <button type="submit" class="button is-danger">Xóa</button>
+            </div>
+            <div class="control">
+                <a asp-action="Index" class="button" style="background-color: #f5f5f5; color: var(--brown-primary); border: 1px solid #dbdbdb;">
+                    <span>Hủy</span>
+                </a>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,75 @@
+@model TodoList.Models.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Đăng ký";
+}
+
+<div class="columns is-centered">
+    <div class="column is-6">
+        <div class="box">
+            <h1 class="title is-3 has-text-centered" style="color: var(--brown-dark);">Đăng ký tài khoản</h1>
+            
+            <form asp-action="Register">
+                <div asp-validation-summary="ModelOnly" class="notification is-danger"></div>
+                
+                <div class="field">
+                    <label asp-for="Username" class="label"></label>
+                    <div class="control has-icons-left">
+                        <input asp-for="Username" class="input" placeholder="Nhập tên đăng nhập" />
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                    </div>
+                    <span asp-validation-for="Username" class="help is-danger"></span>
+                </div>
+                
+                <div class="field">
+                    <label asp-for="Email" class="label"></label>
+                    <div class="control has-icons-left">
+                        <input asp-for="Email" class="input" placeholder="Nhập email" />
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                    </div>
+                    <span asp-validation-for="Email" class="help is-danger"></span>
+                </div>
+                
+                <div class="field">
+                    <label asp-for="Password" class="label"></label>
+                    <div class="control has-icons-left">
+                        <input asp-for="Password" class="input" placeholder="Nhập mật khẩu" />
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </div>
+                    <span asp-validation-for="Password" class="help is-danger"></span>
+                </div>
+                
+                <div class="field">
+                    <label asp-for="ConfirmPassword" class="label"></label>
+                    <div class="control has-icons-left">
+                        <input asp-for="ConfirmPassword" class="input" placeholder="Xác nhận mật khẩu" />
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </div>
+                    <span asp-validation-for="ConfirmPassword" class="help is-danger"></span>
+                </div>
+                
+                <div class="field">
+                    <div class="control">
+                        <button type="submit" class="button is-brown is-fullwidth">Đăng ký</button>
+                    </div>
+                </div>
+            </form>
+            
+            <div class="has-text-centered mt-4">
+                <p>Đã có tài khoản? <a asp-action="Login" style="color: var(--brown-primary);">Đăng nhập</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

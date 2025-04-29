@@ -1,0 +1,39 @@
+@model TodoList.Models.User
+
+@{
+    ViewData["Title"] = "Thông tin tài khoản";
+}
+
+<div class="box">
+    <h1 class="title is-3" style="color: var(--brown-dark);">Thông tin tài khoản</h1>
+    
+    <div class="content">   
+        <table class="table is-fullwidth">
+            <tbody>
+                <tr>
+                    <th style="width: 30%; padding: 0.5rem;">Tên đăng nhập</th>
+                    <td style="padding: 0.5rem;">@Html.DisplayFor(model => model.Username)</td>
+                </tr>
+                <tr>
+                    <th style="width: 30%; padding: 0.5rem;">Email</th>
+                    <td style="padding: 0.5rem;">@Html.DisplayFor(model => model.Email)</td>
+                </tr>
+                <tr>
+                    <th style="width: 30%; padding: 0.5rem;">Ngày tạo</th>
+                    <td style="padding: 0.5rem;">@Model.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="field mt-4">
+        <div class="control">
+            <a asp-controller="Todo" asp-action="Index" class="button is-brown">
+                <span class="icon">
+                    <i class="fas fa-tasks"></i>
+                </span>
+                <span>Quay lại danh sách công việc</span>
+            </a>
+        </div>
+    </div>
+</div>

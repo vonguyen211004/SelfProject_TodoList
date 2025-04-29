@@ -1,0 +1,78 @@
+@model IEnumerable<TodoList.Models.Todo>
+
+@{
+    ViewData["Title"] = "Danh sách công việc";
+}
+
+<div class="box">
+    <h1 class="title is-3" style="color: var(--brown-dark);">Danh sách công việc</h1>
+    
+    <div class="buttons mb-4">
+        <a asp-action="Create" class="button is-brown">
+            <span class="icon">
+                <i class="fas fa-plus"></i>
+            </span>
+            <span>Thêm công việc mới</span>
+        </a>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="notification is-brown-light">
+            <p>Bạn chưa có công việc nào. Hãy thêm công việc mới!</p>
+        </div>
+    }
+    else
+    {
+        <div class="table-container">
+            <table class="table is-fullwidth is-hoverable">
+                <thead style="background-color: var(--brown-very-light);">
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Title)</th>
+                        <th>@Html.DisplayNameFor(model => model.Description)</th>
+                        <th>@Html.DisplayNameFor(model => model.DueDate)</th>
+                        <th>@Html.DisplayNameFor(model => model.IsDone)</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                            <td>
+                                @if (item.DueDate.HasValue)
+                                {
+                                    @item.DueDate.Value.ToString("dd/MM/yyyy")
+                                }
+                            </td>
+                            <td>
+                                <form asp-action="ToggleStatus" method="post">
+                                    <input type="hidden" name="id" value="@item.Id" />
+                                    <button type="submit" class="button is-small @(item.IsDone ? "is-success" : "is-warning")">
+                                        @(item.IsDone ? "Hoàn thành" : "Chưa hoàn thành")
+                                    </button>
+                                </form>
+                            </td>
+                            <td>
+                                <div class="buttons are-small">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="button is-brown-light">
+                                        <span class="icon">
+                                            <i class="fas fa-edit"></i>
+                                        </span>
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="button is-danger">
+                                        <span class="icon">
+                                            <i class="fas fa-trash"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
