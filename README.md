@@ -7,6 +7,7 @@ TODOLIST WEB APP
 
 
 🔧 Backend
+
 ASP.NET Core MVC: Framework chính để xây dựng ứng dụng web theo mô hình MVC (Model-View-Controller).
 
 C#: Ngôn ngữ lập trình chính để xử lý logic backend.
@@ -20,6 +21,7 @@ Dependency Injection: Sử dụng hệ thống DI tích hợp sẵn của ASP.NE
 
 
 🎨 Frontend
+
 Razor Views: View engine của ASP.NET Core để tạo ra giao diện HTML động.
 
 Bulma CSS: Framework CSS hiện đại giúp xây dựng giao diện đẹp mắt và responsive.
