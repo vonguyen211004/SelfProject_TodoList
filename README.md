@@ -55,9 +55,9 @@ Giao diện trực quan, dễ sử dụng trên cả desktop và thiết bị di
 
 ⚙️ Hướng dẫn cài đặt
 Clone repository về máy:
-git clone https://github.com/your-username/todolist-aspnetmvc.git
+git clone (https://github.com/vonguyen211004/SelfProject_TodoList.git)
 
 Mở solution trong Visual Studio và chạy ứng dụng.
 Đảm bảo đã cài đặt MongoDB và chỉnh chuỗi kết nối trong appsettings.json.
-Truy cập địa chỉ https://localhost:5279 (hoặc port tương ứng) để sử dụng ứng dụng.2
+Truy cập địa chỉ https://localhost:5279 để sử dụng ứng dụng.
 
